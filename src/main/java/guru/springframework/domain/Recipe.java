@@ -122,7 +122,16 @@ public class Recipe {
     }
 
     public void setNotes(Notes notes) {
+        // set bidirectional association in one place
+        notes.setRecipe(this);
         this.notes = notes;
+    }
+
+    public Recipe addIngredient(Ingredient ingredient) {
+        // set bidirectional association in one place
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
     }
 
     public Set<Ingredient> getIngredients() {

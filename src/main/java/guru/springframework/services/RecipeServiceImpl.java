@@ -20,7 +20,7 @@ public class RecipeServiceImpl implements RecipeService {
     public List<Recipe> getAllRecipes() {
 
         List<Recipe> recipes = new ArrayList<>();
-        recipeRepository.findAll().forEach(recipes::add);
+        recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
         recipes.sort(Comparator.comparing(Recipe::getDescription));
 
         return recipes;
