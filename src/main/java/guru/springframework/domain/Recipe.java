@@ -1,5 +1,9 @@
 package guru.springframework.domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
 import javax.persistence.*;
 import java.util.Set;
 
@@ -19,6 +23,7 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    @Lob
     private String directions;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
@@ -141,5 +146,12 @@ public class Recipe {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    public List<Ingredient> getIngredientsSorted() {
+        List<Ingredient> result = new ArrayList<>();
+        result.addAll(this.getIngredients());
+        result.sort(Comparator.comparing(Ingredient::getDescription));
+        return result;
     }
 }
