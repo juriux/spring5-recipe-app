@@ -5,6 +5,11 @@ body {
   font-size: 12pt;
 }
 
+h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
 div.main_container {
   margin-top: 20px;
   padding: 10px;
@@ -14,6 +19,14 @@ div.main_container {
   margin-right: auto;
   background-color: #EAEAEA;
   text-align: center;
+  overflow-x: scroll;
+}
+
+div.recipe_list_div {
+  min-width: 500px;
+  max-width: 98%;
+  overflow-x: scroll;
+  margin: auto;
 }
 
 table.recipe_list {
@@ -30,6 +43,10 @@ table.recipe_list {
     background-color: #BBB;
   }
 
+  tr.recipe_row {
+    margin-top: 5px;
+  }
+
   td {
     vertical-align: text-top;
     margin: 0px 2px 5px 2px;
@@ -38,38 +55,50 @@ table.recipe_list {
 
   td.td_description {
     font-weight: bold;
-    width: 200px;
+    min-width: 100px;
+    max-width: 200px;
   }
 
   td.td_category {
     color: sienna;
     text-align: left !important;
-    width: 150px;
+    min-width: 50px;
+    max-width: 150px;
+    overflow: hidden;
   }
 
   td.td_difficulty {
     font-style: oblique;
-    width: 100px;
+    min-width: 80px;
+    max-width: 100px;
     overflow: hidden;
   }
 
   td.td_ingredients {
-    width: 250px;
+    min-width: 150px;
+    max-width: 250px;
     text-align: left !important;
   }
 
   td.td_directions {
-    width: 400px;
-    text-align: justify;
+    min-width: 200px;
+    max-width: 500px;
+    text-align: left !important;
     background-color: beige;
 
     p {
-      max-width: 400px;
+      margin: auto;
+      min-width: 192px;
+      max-width: 492px;
+      overflow: hidden;
+      padding: 4px;
     }
   }
 
   td.td_notes {
-    width: 300px;
-    text-align: justify !important;
+    min-width: 100px;
+    max-width: 400px;
+    overflow: hidden;
+    text-align: left !important;
   }
 }

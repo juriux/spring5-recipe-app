@@ -12,40 +12,42 @@
 
     <h1>My Recipes!</h1>
 
-    <table class="recipe_list">
-        <thead>
-        <tr>
-            <th>Description</th>
-            <th>Categories</th>
-            <th>Difficulty</th>
-            <th>Ingredients</th>
-            <th>Directions</th>
-            <th>Notes</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="recipe : ${recipes}">
-            <td class="td_description" th:text="${recipe.getDescription()}">Description</td>
-            <td class="td_category">
-                <ul th:each="category : ${recipe.getCategories()}">
-                    <li th:text="${category.getDescription()}">Category</li>
-                </ul>
-            </td>
-            <td class="td_difficulty" th:text="${recipe.getDifficulty().name()}">Difficulty</td>
-            <td class="td_ingredients">
-                <ul th:each="ingredient : ${recipe.getIngredientsSorted()}">
-                    <li th:text="${ingredient.getAmount() + ' ' + ingredient.getUom().getDescription() + ' ' + ingredient.getDescription()}">
-                        Ingredient
-                    </li>
-                </ul>
-            </td>
-            <td class="td_directions">
-                <p th:utext="${recipe.getDirections()}">Directions</p>
-            </td>
-            <td class="td_notes" th:text="${recipe.getNotes()?.getRecipeNotes()}">Notes</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="recipe_list_div">
+        <table class="recipe_list">
+            <thead>
+            <tr>
+                <th>Description</th>
+                <th>Categories</th>
+                <th>Difficulty</th>
+                <th>Ingredients</th>
+                <th>Directions</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="recipe_row" th:each="recipe : ${recipes}">
+                <td class="td_description" th:text="${recipe.getDescription()}">Description</td>
+                <td class="td_category">
+                    <ul th:each="category : ${recipe.getCategories()}">
+                        <li th:text="${category.getDescription()}">Category</li>
+                    </ul>
+                </td>
+                <td class="td_difficulty" th:text="${recipe.getDifficulty().name()}">Difficulty</td>
+                <td class="td_ingredients">
+                    <ul th:each="ingredient : ${recipe.getIngredientsSorted()}">
+                        <li th:text="${ingredient.getAmount() + ' ' + ingredient.getUom().getDescription() + ' ' + ingredient.getDescription()}">
+                            Ingredient
+                        </li>
+                    </ul>
+                </td>
+                <td class="td_directions">
+                    <p th:utext="${recipe.getDirections()}">Directions</p>
+                </td>
+                <td class="td_notes" th:utext="${recipe.getNotes()?.getRecipeNotes()}">Notes</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
