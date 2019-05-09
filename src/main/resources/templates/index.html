@@ -14,12 +14,14 @@
 
     <table class="recipe_list">
         <thead>
-        <th>Description</th>
-        <th>Categories</th>
-        <th>Difficulty</th>
-        <th>Ingredients</th>
-        <th>Directions</th>
-        <th>Notes</th>
+        <tr>
+            <th>Description</th>
+            <th>Categories</th>
+            <th>Difficulty</th>
+            <th>Ingredients</th>
+            <th>Directions</th>
+            <th>Notes</th>
+        </tr>
         </thead>
         <tbody>
         <tr th:each="recipe : ${recipes}">
