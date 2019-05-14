@@ -31,12 +31,12 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: maven dependencies
+      - run: mvn dependencies
 
       - save_cache:
           paths:
-            - ~/.maven
+            - ~/.mvn
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: maven test
+      - run: mvn test
