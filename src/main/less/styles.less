@@ -19,28 +19,39 @@ div.main_container {
   margin-right: auto;
   background-color: #EAEAEA;
   text-align: center;
-  overflow-x: scroll;
+}
+
+.div-back-link {
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 10px;
+
+  a {
+    padding: 5px;
+    font-weight: bolder;
+    color: #337ab7;
+    border: 1px solid transparent;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: purple;
+    border: 1px solid pink;
+  }
 }
 
 div.recipe_list_div {
-  min-width: 500px;
-  max-width: 98%;
+  width: 98%;
   overflow-x: scroll;
   margin: auto;
 }
 
 table.recipe_list {
 
-  tbody:before {
-    content: "-";
-    display: block;
-    line-height: 0.5em;
-    color: transparent;
-  }
-
   th {
     text-align: center;
-    background-color: #BBB;
+    background-color: #337ab7;
+    color: #DADADA;
   }
 
   tr.recipe_row {
@@ -49,7 +60,6 @@ table.recipe_list {
 
   td {
     vertical-align: text-top;
-    margin: 0px 2px 5px 2px;
     padding: 5px;
   }
 
@@ -60,7 +70,7 @@ table.recipe_list {
   }
 
   td.td_category {
-    color: sienna;
+    color: darkslateblue;
     text-align: left !important;
     min-width: 50px;
     max-width: 150px;
@@ -68,7 +78,6 @@ table.recipe_list {
   }
 
   td.td_difficulty {
-    font-style: oblique;
     min-width: 80px;
     max-width: 100px;
     overflow: hidden;
@@ -101,4 +110,39 @@ table.recipe_list {
     overflow: hidden;
     text-align: left !important;
   }
+}
+
+div.recipe-body {
+  .div-ingredients {
+    float: left;
+    width: 30%;
+  }
+
+  table.table-ingredient {
+    th {
+      text-align: center !important;
+    }
+
+    td {
+      padding: 5px;
+    }
+  }
+
+  .div-recipe-directions {
+    margin-left: 31%;
+    text-align: left !important;
+    padding: 15px;
+    border: 2px solid #337ab7;
+  }
+
+  .div-recipe-notes {
+    font-size: small;
+  }
+}
+
+span.span-category {
+  padding: 4px;
+  margin-right: 5px;
+  color: #333 !important;
+  background-color: bisque;
 }

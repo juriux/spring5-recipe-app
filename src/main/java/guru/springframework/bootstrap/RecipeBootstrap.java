@@ -1,17 +1,21 @@
 package guru.springframework.bootstrap;
 
-import guru.springframework.domain.*;
+import guru.springframework.domain.Category;
+import guru.springframework.domain.Difficulty;
+import guru.springframework.domain.Ingredient;
+import guru.springframework.domain.Notes;
+import guru.springframework.domain.Recipe;
+import guru.springframework.domain.UnitOfMeasure;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by jt on 6/13/17.
@@ -126,15 +130,15 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "The simplest version of guacamole is just mashed avocados with salt. Don't let the lack of availability of other ingredients stop you from making guacamole.<br/>" +
                 "To extend a limited supply of avocados, add either sour cream or cottage cheese to your guacamole dip. Purists may be horrified, but so what? It tastes great.<br/>" +
                 "<br/><br/>" +
-                "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws");
+                "Read more: <a href=\"http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws\" target=\"blank\">http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws</a>");
         guacRecipe.setNotes(guacNotes);
 
         guacRecipe.addIngredient(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
-        guacRecipe.addIngredient(new Ingredient("Kosher salt", new BigDecimal(".5"), teapoonUom));
+        guacRecipe.addIngredient(new Ingredient("kosher salt", new BigDecimal(".5"), teapoonUom));
         guacRecipe.addIngredient(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), tableSpoonUom));
         guacRecipe.addIngredient(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2), tableSpoonUom));
         guacRecipe.addIngredient(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), eachUom));
-        guacRecipe.addIngredient(new Ingredient("Cilantro", new BigDecimal(2), tableSpoonUom));
+        guacRecipe.addIngredient(new Ingredient("cilantro", new BigDecimal(2), tableSpoonUom));
         guacRecipe.addIngredient(new Ingredient("freshly grated black pepper", new BigDecimal(2), dashUom));
         guacRecipe.addIngredient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachUom));
 
@@ -169,7 +173,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "First, I marinate the chicken briefly in a spicy paste of ancho chile powder, oregano, cumin, and sweet orange juice while the grill is heating. You can also use this time to prepare the taco toppings.<br/>" +
                 "Grill the chicken, then let it rest while you warm the tortillas. Now you are ready to assemble the tacos and dig in. The whole meal comes together in about 30 minutes!<br/>" +
                 "<br/><br/>" +
-                "Read more: http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvu7Q0MJ");
+                "Read more: <a href=\"http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvu7Q0MJ\"\" target=\"blank\">http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvu7Q0MJ</a>");
         tacosRecipe.setNotes(tacoNotes);
 
         tacosRecipe.addIngredient(new Ingredient("Ancho Chili Powder", new BigDecimal(2), tableSpoonUom));

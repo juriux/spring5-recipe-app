@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recipe Home</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/resources/css/recipeapp.css}"/>
+</head>
+<body>
+
+<div id="main_container" class="main_container">
+
+    <div class="div-back-link">
+        <a th:href="${previousPage}">Back</a>
+    </div>
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h2 class="span-recipe-title" th:text="${recipe.getDescription()}"></h2>
+            <span>Categories:&nbsp;</span>
+            <span class="span-category" th:each="cat : ${recipe.getCategories()}" th:text="${cat.getDescription()}"></span>
+            <br/>
+            <span>Difficulty:&nbsp;</span>
+            <span th:text="${recipe.getDifficulty().name()}"></span>
+        </div>
+
+        <div class="panel-body recipe-body">
+            <div class="panel panel-success div-ingredients">
+                <div class="panel-heading" style="text-align: center !important;">
+                    <h1>Ingredients</h1>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-ingredient">
+                        <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Unit</th>
+                            <th>Ingredient</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="ingredient : ${igredientsSorted}">
+                            <td th:text="${ingredient.getAmount()}"></td>
+                            <td th:text="${ingredient.getUom().getDescription().toLowerCase()}"></td>
+                            <td th:text="${ingredient.getDescription()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel div-recipe-directions">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Directions</div>
+                    <div class="panel-body" th:utext="${recipe.getDirections()}"></div>
+                </div>
+                <div class="panel panel-primary div-recipe-notes">
+                    <div class="panel-heading">Notes</div>
+                    <div class="panel-body" th:utext="${recipe.getNotes().getRecipeNotes()}"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
